@@ -34,36 +34,43 @@ fn main() {
     io::stdin().read_line(&mut operacja).expect("Nie udało ci się odczytać linii");
 
 
-    let textdod:&str = "+";
-    let textode:&str = "-";
-    let textmn:&str = "*";
-    let textdziel:&str = "/";
-    println!("{}", operacja);
+    const textdod:&str = "+";
+    const textode:&str = "-";
+    const textmn:&str = "*";
+    const textdziel:&str = "/";
 
-    match operacja.as_str() {
-    "textdod" => {
-            println!("dodaj");
+    match operacja.as_str().trim() {
+        textdod => {
+
             let wynik = suma(inputa, inputb);
 
             println!("Wynik dodawania współczynników: {} oraz {} to {}", inputa, inputb, wynik);
-            }
+        }
         
-    "textode" => {
-        println!("odejmij");
+        textode => {
+
             let wynik = roznica(inputa, inputb);
 
             println!("Wynik odejmowania współczynników: {} oraz {} to {}", inputa, inputb, wynik);
         }
-    "textmn" => {
-            println!("iloczyn");
-        //    println!("Wprowadziłeś: {} + {}", inputa.trim(), inputb.trim());
+        textmn => {
+
+            let wynik = iloczyn(inputa, inputb);
+
+            println!("Wynik mnożenia współczynników: {} oraz {} to {}", inputa, inputb, wynik);
         }
-        "textdziel" => {
-            println!("textdziel");
-            //    println!("Wprowadziłeś: {} + {}", inputa.trim(), inputb.trim());
+        textdziel => {
+            if inputb == 0{
+                println!("Wynik dzielenia współczynników: {} oraz {} to 0", inputa, inputb);
+            
+            }else{
+            let wynik = iloraz(inputa, inputb);
+
+            println!("Wynik dzielenia współczynników: {} oraz {} to {}", inputa, inputb, wynik);
+            }
         }
         _ =>{
-                println!("Noichuj");
+                println!("No nie !!!");
         }
     }
 }
