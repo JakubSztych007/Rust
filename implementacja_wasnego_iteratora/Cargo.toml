@@ -1,0 +1,6 @@
+[package]
+name = "implementacja_wasnego_iteratora"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
